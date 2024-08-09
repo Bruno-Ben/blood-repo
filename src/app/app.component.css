@@ -1,0 +1,177 @@
+body {
+  background-color: #999999;
+  margin: 0;
+  height:100%;
+  font-family: Arial, sans-serif;
+}
+
+.form-container {
+    background-color: #f0f0f0;
+    border: 1px solid #c2c3c5;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .form-group input[type="file"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #cbd3da;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  .btn-submit {
+    display: block;
+    width: 100%;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-submit:hover {
+    background-color: #0056b3;
+  }
+  
+  @media (max-width: 768px) {
+    .form-container {
+      padding: 15px;
+    }
+  
+    .btn-submit {
+      font-size: 14px;
+    }
+  }
+
+
+.main-container {
+  max-height: 70%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.data-container {
+  flex: 1;
+  max-width: 400px;
+}
+
+.data-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.data-table th, .data-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.data-table th {
+  background-color: rgb(230, 230, 230);
+  font-weight: bold;
+}
+
+.data-table tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+.data-table tr:nth-child(even) {
+  background-color: #ffffff;
+}
+
+.result-container {
+  flex: 2;
+  max-width: 375px;
+}
+
+.other-result-container {
+  flex: 3;
+  max-width: 250px;
+}
+
+.tables-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.table-section {
+  flex: 1;
+}
+
+.average-age-table, .bmi-table, .percentage-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.average-age-table th, .bmi-table th, .percentage-table th,
+.average-age-table td, .bmi-table td, .percentage-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.average-age-table th, .bmi-table th, .percentage-table th {
+  background-color: rgb(230, 230, 230);
+  font-weight: bold;
+}
+
+.average-age-table tr:nth-child(odd),
+.bmi-table tr:nth-child(odd),
+.percentage-table tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+.average-age-table tr:nth-child(even),
+.bmi-table tr:nth-child(even),
+.percentage-table tr:nth-child(even) {
+  background-color: #ffffff;
+}
+
+.percentage-table th:nth-child(2), .percentage-table td:nth-child(2) {
+  width: 100%;
+}
+:host {
+  display: block;
+  background-color: #f0f0f0; 
+  margin: 0;
+  height: 100vh;
+}
+
+.data-container,
+.main-container,
+.result-container {
+  display: none;
+  background-color: rgba(255, 255, 255, 0.8); 
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(51, 55, 99, 0.1);
+  margin: 20px;
+}

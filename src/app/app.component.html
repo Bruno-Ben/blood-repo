@@ -1,0 +1,128 @@
+  <div class="form-container">
+    <form (submit)="onSubmit()" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="fileInput">Enviar Arquivo JSON</label>
+        <input
+          type="file"
+          id="fileInput" 
+          (change)="onFileSelected($event)"
+          accept=".json"
+        />
+        
+      </div>
+      <button type="submit" class="btn-submit">Enviar</button>
+    </form>
+  </div>
+  <div class="form-container">
+    <button (click)="fetchData()">Buscar Dados</button>
+  </div>
+  <div class="main-container">
+    <div class="data-container">
+      <h2>Pessoas por Estado</h2>
+      <div *ngIf="!peopleByState">Carregando Dados...</div>
+      <table class="data-table" *ngIf="peopleByState">
+        <thead>
+          <tr>
+            <th>Estado</th>
+            <th>Nº de Pessoas</th>
+            <th>Estado</th>
+            <th>Nº de Pessoas</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let i of indices">
+            <td>{{ peopleByStatePartOne[i].key }}</td>
+            <td>{{ peopleByStatePartOne[i].value }}</td>
+            <td *ngIf="peopleByStatePartTwo[i]">{{ peopleByStatePartTwo[i].key }}</td>
+            <td *ngIf="peopleByStatePartTwo[i]">{{ peopleByStatePartTwo[i].value }}</td>
+          </tr>
+        </tbody>
+      </table>
+      
+    </div>
+  
+    <div class="result-container">
+      <div class="tables-container">
+        <div class="table-section">
+          <h2>IMC Médio por Faixa Etária</h2>
+          <table class="bmi-table">
+            <thead>
+              <tr>
+                <th>Faixa etária</th>
+                <th>IMC Médio</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let ageGroup of getAgeGroups()">
+                <td>{{ ageGroup }}</td>
+                <td>{{ averageBMIByAgeGroup[ageGroup] | number:'1.2-2' }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+  
+        <div class="table-section">
+          <h2>Pessoas com IMC maior que 30</h2>
+          <table class="percentage-table">
+            <thead>
+              <tr>
+                <th>Sexo</th>
+                <th>Porcentagem com IMC > 30 (%)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let sex of getSexTypes()">
+                <td>{{ sex }}</td>
+                <td>{{ percentageOfSexWithHighBMI[sex] | number:'1.2-2' }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="result-container">
+      <div class="tables-container">
+        <div class="table-section">
+          <h2>Média de Idade por Tipo Sanguíneo</h2>
+          <table class="bmi-table">
+            <thead>
+              <tr>
+                <th>Tipo Sanguíneo</th>
+                <th>Média de Idade</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let bloodType of getBloodTypes()">
+                <td>{{ bloodType }}</td>
+                <td>{{ averageAgePerBloodType[bloodType] | number:'1.2-2' }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="result-container">
+      <div class="tables-container">
+        <div class="table-section">          
+          <h2>Doadores por Tipo Sanguíneo</h2>
+            <table class="percentage-table">
+              <thead>
+                <tr>
+                  <th>Tipo Sanguíneo</th>
+                  <th>Quantia de Doadores</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let bloodType of getSexDonorBloodTypes()">
+                  <td>{{ bloodType }}</td>
+                  <td>{{ donorCount[bloodType] | number:'1.0-0' }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+      </div>
+    </div>
+  </div>
+  
